@@ -2,3 +2,31 @@
     <%= gravatar_for @user %>
     <%= @user.name %>
 </h1>
+<h2>プロフィール</h2>
+<div class="wrp-profile">
+  <div class="row panel panel-info">
+    <p class="panel-heading">名前</p>
+    <p class="panel-body"><%= @user.name %></p>
+  </div>
+  <div class="row panel panel-info">
+    <p class="panel-heading">年齢</p>
+    <p class="panel-body"><%= @user.birthday.try(:strftime, "%Y年%m月%d日") %></p>
+  </div>
+  <div class="row panel panel-info">
+    <p class="panel-heading">自己紹介</p>
+    <p class="panel-body"><%= @user.introduce %></p>
+  </div>
+  <div class="row panel panel-info">
+    <p class="panel-heading">サイトURL</p>
+    <p class="panel-body"><%= @user.homepage %></p>
+  </div>
+  <div class="row panel panel-info">
+    <p class="panel-heading">誕生日</p>
+    <p class="panel-body"><%= @user.birthday %></p>
+  </div>
+  <div class="row panel panel-info">
+    <p class="panel-heading">地域</p>
+    <p class="panel-body"><%= @user.location %></p>
+  </div>
+
+</div>

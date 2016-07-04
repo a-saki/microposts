@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
     format: {with: VALID_EMAIL_REGEX},
     uniqueness: {case_sensitive: false}
     has_secure_password
+    
+    validates :introduce, length: {maximum: 255}, allow_blank: true
+    validates :homepage, allow_blank: true, format: /\A#{URI::regexp(%w(http https))}\z/, length: {maximum: 255}
+    validates :location, allow_blank: true,  length: {maximum: 255}
 end

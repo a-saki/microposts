@@ -1,0 +1,35 @@
+      <div class="form-group">
+      <%= f.label 'お名前' %>
+      <%= f.text_field :name , class: 'form-control' %>
+      </div>
+      <div class="form-group">
+      <%= f.label 'メールアドレス' %>
+      <%= f.text_field :email , class: 'form-control'%>
+      </div>
+      <div class="form-group">
+      <%= f.label 'パスワード' %>
+      <%= f.password_field :password , class: 'form-control'%>
+      </div>
+      <div class="form-group">
+      <%= f.label 'パスワード※確認用' %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+      <div class="form-inline">
+      <div class="form-group">
+      <%= f.label '誕生日' %>
+      <%= f.date_select :birthday, {start_year: 1940, end_year: Time.now.year, use_month_numbers: true}, {class: "form-control"} %>
+      </div>
+      </div>
+      <div class="form-group">
+      <%= f.label '自己紹介' %>
+      <%= f.text_area :introduce, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+      <%= f.label 'ホームページ' %>
+      <%= f.text_field :homepage , class: 'form-control'%>
+      </div>
+      <div class="form-group">
+      <%= f.label '地域' %>
+      <%= f.text_field :location, class: 'form-control' %>
+      </div>
+      
