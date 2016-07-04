@@ -14,10 +14,11 @@
       <%= f.label 'パスワード※確認用' %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
-      
+      <div class="form-inline">
       <div class="form-group">
       <%= f.label '誕生日' %>
-      <%= f.date_select :birthday, start_year: 1940, end_year: Time.now.year, use_month_numbers: true, class: "c-select" %>
+      <%= f.date_select :birthday, {start_year: 1940, end_year: Time.now.year, use_month_numbers: true}, {class: "form-control"} %>
+      </div>
       </div>
       <div class="form-group">
       <%= f.label '自己紹介' %>
