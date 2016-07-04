@@ -7,6 +7,15 @@
       <%= f.text_field :email %>
       </div>
       <div class="form-group">
+      <%= f.label 'パスワード' %>
+      <%= f.password_field :password %>
+      </div>
+      <div class="form-group">
+      <%= f.label 'パスワード※確認用' %>
+      <%= f.password_field :password_confirmation %>
+      </div>
+      
+      <div class="form-group">
       <%= f.label '誕生日' %>
       <%= f.date_select :birthday, start_year: 1940, end_year: Time.now.year, use_month_numbers: true, class: "c-select" %>
       </div>
