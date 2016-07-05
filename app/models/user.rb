@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
     validates :introduce, length: {maximum: 255}, allow_blank: true
     validates :homepage, allow_blank: true, format: /\A#{URI::regexp(%w(http https))}\z/, length: {maximum: 255}
     validates :location, allow_blank: true,  length: {maximum: 255}
+    
+    has_many :microposts
 end

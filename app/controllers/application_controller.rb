@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   
   private
+  
+  # ▼ログインしてなかったらログイン画面にリダイレクトさせる
   def logged_in_user
     unless logged_in?
       store_location
