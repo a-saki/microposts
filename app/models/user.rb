@@ -12,4 +12,23 @@ class User < ActiveRecord::Base
     validates :location, allow_blank: true,  length: {maximum: 255}
     
     has_many :microposts
+    
+    has_many :following_relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
+    has_many :following_users, through: :following_relationships, source: :followed
+    
+    
+    #メソッドの追加
+    #他のユーザーをフォローする
+    def follow(other_user)
+        following_relationships.find_or_create_by(followed_id: other_user.id)
+    end
+    
+    def unfollow(other_user)
+    following_relationship = following_relationships.find_by(followed_id: other_user.id)
+    following_relationship.destroy if following_relationship
+  end
+    
+    def following?(other_user)
+        following_relationships.include?(other_user)
+    end
 end
