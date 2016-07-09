@@ -1,0 +1,10 @@
+<div class="person-block col-md-4">
+  <%= link_to user_path(object), class: "person-link" do %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <p><%= gravatar_for object %></p>
+      <p class="name"><%= object.name %></p>
+    </div>
+  </div><!--/panel-->
+  <% end %>
+</div><!--/person-block-->

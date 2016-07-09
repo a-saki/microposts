@@ -197,3 +197,39 @@ span.picture {
     border: 0;
   }
 }
+
+/* フォロー一覧  */
+.person-block {
+  a:hover {
+    text-decoration: none;
+    .panel {
+      background-color: #e8e8e8;
+    }
+  }
+}
+
+.other-links {
+  list-style-type: none;
+  padding: 0;
+  display: table;
+  width: 100%;
+  .num {
+    font-size: 18px;
+  }
+  a {
+    display: block;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  span {
+    display: block;
+  }
+  .s-txt {
+    font-size: 10px;
+    color: #8899a6;
+  }
+  li {
+    display: table-cell;
+  }
+}

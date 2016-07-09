@@ -1,0 +1,27 @@
+
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+    <ul class="other-links">
+      <li>
+        <%= link_to user_path(@user) do %>
+        <span class="s-txt">ツイート</span>
+        <span class="num"><%= @user.microposts.count %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to followings_user_path(@user) do %>
+        <span class="s-txt">フォロー</span>
+        <span class="num"><%= @user.following_users.count %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to followers_user_path(@user) do %>
+        <span class="s-txt">フォロワー</span>
+        <span class="num"><%= @user.follower_users.count %></span>
+        <% end %>
+      </li>
+    </ul>

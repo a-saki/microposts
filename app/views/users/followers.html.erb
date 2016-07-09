@@ -1,0 +1,14 @@
+<div class="row">
+  <aside class="col-md-4">
+    <%= render "layouts/aside" %>
+  </aside>
+  <div class="col-md-8">
+   <h2 class="text-left">フォロワ一覧</h2>
+   <div class="wrp-block row">
+     <% @followings.each do |following| %>
+     
+     <%= render "followlists", object: following %>
+     <% end %>
+   </div>
+  </div>
+</div>
