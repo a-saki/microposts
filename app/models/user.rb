@@ -26,12 +26,18 @@ class User < ActiveRecord::Base
         following_relationships.find_or_create_by(followed_id: other_user.id)
     end
     
+    #フォローしているユーザーのフォローを外す
     def unfollow(other_user)
-    following_relationship = following_relationships.find_by(followed_id: other_user.id)
-    following_relationship.destroy if following_relationship
-  end
+        following_relationship = following_relationships.find_by(followed_id: other_user.id)
+        following_relationship.destroy if following_relationship
+    end
     
+    #フォローしているかどうか
     def following?(other_user)
         following_relationships.include?(other_user)
+    end
+    
+    #自分とフォローしてるユーザのつぶやきを取得
+    def feed_items
     end
 end
