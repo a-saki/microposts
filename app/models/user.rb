@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
     
     #フォローしているかどうか
     def following?(other_user)
-        following_relationships.include?(other_user)
+        following_users.include?(other_user)
     end
     
     #自分とフォローしてるユーザのつぶやきを取得

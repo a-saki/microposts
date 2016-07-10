@@ -1,0 +1,51 @@
+
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+    <ul class="other-links">
+      <li>
+        <%= link_to user_path(@user) do %>
+        <span class="s-txt">ツイート</span>
+        <span class="num"><%= @user.microposts.count %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to followings_user_path(@user) do %>
+        <span class="s-txt">フォロー</span>
+        <span class="num"><%= @user.following_users.count %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to followers_user_path(@user) do %>
+        <span class="s-txt">フォロワー</span>
+        <span class="num"><%= @user.follower_users.count %></span>
+        <% end %>
+      </li>
+    </ul>
+     <% if @user == current_user %>
+     <div class="other-info">
+       <ul class="other-info-lists">
+         <% unless @user.birthday.blank? %>
+         <li>
+           <p class="info-ttl">誕生日</p>
+           <p class="info-content"><%= @user.birthday.try(:strftime, "%Y年%m月%d日") %></p>
+         </li>
+         <% end %>
+          <% unless @user.location.blank? %>
+         <li>
+           <p class="info-ttl">地域</p>
+           <p class="info-content"><%= @user.location %></p>
+         </li>
+         <% end %>
+         <% unless @user.homepage.blank? %>
+         <li>
+           <p class="info-ttl">ホームページ</p>
+           <p class="info-content"><%= @user.homepage %></p>
+         </li>
+         <% end %>
+       </ul>
+     </div>
+     <% end %>
