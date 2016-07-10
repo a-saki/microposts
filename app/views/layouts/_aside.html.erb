@@ -25,3 +25,27 @@
         <% end %>
       </li>
     </ul>
+     <% if @user == current_user %>
+     <div class="other-info">
+       <ul class="other-info-lists">
+         <% unless @user.birthday.blank? %>
+         <li>
+           <p class="info-ttl">誕生日</p>
+           <p class="info-content"><%= @user.birthday.try(:strftime, "%Y年%m月%d日") %></p>
+         </li>
+         <% end %>
+          <% unless @user.location.blank? %>
+         <li>
+           <p class="info-ttl">地域</p>
+           <p class="info-content"><%= @user.location %></p>
+         </li>
+         <% end %>
+         <% unless @user.homepage.blank? %>
+         <li>
+           <p class="info-ttl">ホームページ</p>
+           <p class="info-content"><%= @user.homepage %></p>
+         </li>
+         <% end %>
+       </ul>
+     </div>
+     <% end %>

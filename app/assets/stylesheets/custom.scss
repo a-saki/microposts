@@ -233,3 +233,24 @@ span.picture {
     display: table-cell;
   }
 }
+
+.other-info-lists {
+  padding: 0;
+  list-style-type: none;
+  li {
+    display: table;
+    padding: 10px 0;
+    width: 100%;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  .info-ttl {
+    vertical-align: center;
+    display: table-cell;
+    font-size: 10px;
+    color: #8899a6;
+  }
+  .info-content {
+    vertical-align: center;
+    display: table-cell;
+  }
+}
