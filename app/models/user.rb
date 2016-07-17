@@ -41,4 +41,24 @@ class User < ActiveRecord::Base
     def feed_items
         Micropost.where(user_id: following_user_ids + [self.id])
     end
+    
+    
+    
+    has_many :favorites
+    has_many :favorite_id, through: :favorites, source: :micropost
+    
+    # お気に入り登録
+    def register_favorite(other_post)
+        favorites.find_or_create_by(micropost_id: other_post.id)
+    end
+    
+    # お気に入り解除
+    def destroy_favorite(other_post)
+        favorite = favorites.find_by(micropost_id: other_post.id)
+        favorite.destroy if favorite
+    end
+    
+    def favoriting?(other_post)
+        favorite_id.include?(other_post)
+    end
 end

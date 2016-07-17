@@ -254,3 +254,26 @@ span.picture {
     display: table-cell;
   }
 }
+
+/*お気に入り  */
+.micropost-list {
+  position: relative;
+  .my-favorite {
+    top: 0;
+    right: 0;
+    position: absolute;
+    background-color:#ffc000;
+    padding: 10px;
+    font-size: 10px;
+    width: auto;
+    border: none;
+    color: #333;
+    &.unfavorite {
+      background-color:#e8e8e8;
+    }
+  }
+}
+
+.no-microposts {
+  padding: 10px;
+}

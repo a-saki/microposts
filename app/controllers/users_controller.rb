@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :check_login, only: [:edit, :update]
+  before_action :check_login, only: [:edit, :update, :favorites]
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.order(created_at: :desc)
+    @microposts = @user.microposts.page(params[:page]).per(5).order(created_at: :desc)
   end
   
   def new
@@ -46,6 +46,12 @@ class UsersController < ApplicationController
   def followers
     @user = User.find(params[:id])
     @followings = @user.follower_users
+  end
+  
+  def favorites
+    @user = User.find(params[:id])
+    @favorites = @user.favorite_id.page(params[:page]).per(5)
+    # @microposts = @favorites.microposts.order(created_at: :desc)
   end
   
   private 

@@ -1,0 +1,27 @@
+<div class="row">
+  <aside class="col-md-4">
+    <%= render "layouts/aside" %>
+  </aside>
+  
+  
+  <div class="col-md-8">
+   <h3>お気に入りリスト</h3>
+   <% if @favorites.any? %>
+     <ol class="microposts">
+     <% @favorites.each do |favorite| %>
+    <li id="micropost-<%= favorite.id %>" class="micropost-list">
+    <%= link_to gravatar_for(favorite.user, size: 50), favorite.user %>
+      <span class="user"><%= link_to favorite.user.name, favorite.user %></span>
+      <span class="content"><%= favorite.content %></span>
+      <span class="timestamp">
+          Posted<%= time_ago_in_words(favorite.created_at) %> ago.
+      </span>
+    </li>
+    <% end %>
+    </ol>
+    <%= paginate(@favorites) %>
+    <% else %>
+    <p class="bg-info no-microposts">お気に入りされた投稿はありません</p>
+    <% end %>
+  </div>
+</div>

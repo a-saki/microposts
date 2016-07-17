@@ -1,4 +1,4 @@
-<li id="micropost-<%= micropost.id %>">
+<li id="micropost-<%= micropost.id %>" class="micropost-list">
     <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
     <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
     <span class="content"><%= micropost.content %></span>
@@ -8,4 +8,25 @@
             <%= link_to '削除' , micropost, method: :delete, data: {confirm: '本当に削除してもいいですか？' } %>        
         <% end %>
     </span>
+    <% if logged_in? && current_user != micropost.user %>
+    <div class="favorite_form" id="post-<%= micropost.id %>">
+        <% if current_user.favoriting?(micropost) %>
+            <%= form_for(current_user.favorites.find_by(micropost_id: micropost.id),
+                html: { method: :delete},
+                remote: true) do |f| %>
+            <%= hidden_field_tag :micropost_id, micropost.id %>
+            <%= f.submit '解除', class: "my-favorite unfavorite" %>
+            <% end %>
+                        
+        <% else %>
+        
+            <%= form_for(current_user.favorites.build, remote: true) do |f| %>
+            <%= hidden_field_tag :micropost_id, micropost.id %>
+            <%= f.submit 'お気に入り', class: "my-favorite" %>
+            <% end %>
+            
+        <% end %>
+
+     </div>
+    <% end %>
 </li>
