@@ -3,5 +3,11 @@
 <div class="field">
     <%= f.text_area :content , placeholder: 'Compose new micropost...' %>
 </div>
+<div class="field post-image">
+    <%= f.label '画像の添付' %>
+    <!--<input type="file" class="filestyle" data-input="false">-->
+    <%= f.file_field :image , class: 'filestyle', 'data-input'=> false %>
+     <%= f.hidden_field :image_cache %>
+</div>
     <%= f.submit '投稿する', class: 'btn btn-primary' %>
 <% end %>

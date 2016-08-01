@@ -8,6 +8,12 @@
             <%= link_to '削除' , micropost, method: :delete, data: {confirm: '本当に削除してもいいですか？' } %>        
         <% end %>
     </span>
+    <% if micropost.image? %>
+    <p>
+        <%= image_tag micropost.image.thumb.url %>
+       
+    </p>
+    <% end %>
     <% if logged_in? && current_user != micropost.user %>
     <div class="favorite_form" id="post-<%= micropost.id %>">
         <% if current_user.favoriting?(micropost) %>

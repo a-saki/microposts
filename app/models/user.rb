@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
     has_many :follower_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
     has_many :follower_users, through: :follower_relationships, source: :follower
     
+
     
     #メソッドの追加
     #他のユーザーをフォローする
@@ -61,4 +62,5 @@ class User < ActiveRecord::Base
     def favoriting?(other_post)
         favorite_id.include?(other_post)
     end
+    
 end
